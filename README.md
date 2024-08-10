@@ -30,7 +30,7 @@ This is a simple Spring Boot REST API project that demonstrates CRUD operations 
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/prashantdhruw/Spring.git
    ```
 
 2. **Build the project:**
@@ -56,8 +56,8 @@ This is a simple Spring Boot REST API project that demonstrates CRUD operations 
 
 ```json
 {
-  "name": "John Doe",
-  "age": 30,
+  "name": "Prashant Dhruw",
+  "age": 25,
   "salary": 60000
 }
 ```
