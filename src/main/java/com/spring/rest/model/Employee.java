@@ -1,55 +1,34 @@
 package com.spring.rest.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+
+/**
+ * Represents an employee entity.
+ */
 @Document(collection = "Employee")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Employee {
     @Id
     private String id;
+
+    @NotBlank(message = "Name is mandatory")
     private String name;
-    private int age;
-    private double salary;
 
-    // Constructors
-    public Employee() {}
+    @NotNull(message = "Age is mandatory")
+    @Min(value = 18, message = "Age must be at least 18")
+    private Integer age;
 
-    public Employee(String name, int age, double salary) {
-        this.name = name;
-        this.age = age;
-        this.salary = salary;
-    }
-
-    // Getters and setters
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
+    @NotNull(message = "Salary is mandatory")
+    private Double salary;
 }
